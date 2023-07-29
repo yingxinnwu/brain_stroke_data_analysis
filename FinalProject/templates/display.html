@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ biosex }}</title>
+    </head>
+    <body>
+        <h1>Data Display for {{ biosex }} Patients: {% if project %} (predicted) {% endif %} </h1>
+            <img src="{{ url_for('fig', data_request=data_request, biosex=biosex, project=project) }}" alt="Data for {{ biosex }}">
+        <form action="/submit_prediction" method="POST">
+            <p>Input the age and value (bmi or glucose) you would like to receive a prediction for:
+                <input type="number" step=any name="age" placeholder="50">
+                <input type="number" step=any name="value" placeholder="50">
+                <input type="submit" value="Submit"></p>
+        </form>
+
+    </body>
+</html>
